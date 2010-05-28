@@ -1,0 +1,18 @@
+---
+en:
+  category: 'Category'
+  categories: 'Categories'
+  details_label: 'Details'
+  keywords_label: 'Keywords'
+  new_category: 'New Category'
+  new_product: 'New Product'
+  no_categories: 'No Categories'
+  number_label: 'Number'
+  product: 'Product'
+  products: 'Products'
+  product_count: '# of Products'
+  product_description: 'Product Description'
+  product_title: 'Product Title'
+  shop: 'Shop'
+  sku_label: 'SKU'
+  

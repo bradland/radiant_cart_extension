@@ -1,0 +1,11 @@
+- form_for [:admin, @category], :html => {'data-onsubmit_status' => onsubmit_status(@category)} do |f|
+  .form_area
+    %p.title
+      = f.label :name, t('name')
+      = f.text_field :name, :class => 'textbox activate', :maxlength => 100
+    %p.buttons{:style=>"clear: left"}
+      = save_model_button(@category)
+      = save_model_and_continue_editing_button(@category)
+      = t('or')
+      = link_to t('cancel'), admin_categories_url
+    = updated_stamp @category

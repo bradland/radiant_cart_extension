@@ -1,0 +1,46 @@
+= render_region :form_top, :locals => {:f => fields}
+
+- render_region :form, :locals => {:f => fields} do |form|
+  %p.title
+    %label{:for=>"product_title"}= t('product_title')
+    = fields.text_field :title, :class => 'textbox', :maxlength => 255
+  .drawer
+  .drawer_contents#attributes
+    %table.fieldset
+      %tr
+        %th.label
+          = fields.label :sku, t('sku_label')
+        %td.field= fields.text_field :sku, :class => 'textbox'
+      %tr
+        %th.label
+          = fields.label :number, t('number_label')
+        %td.field= fields.text_field :number, :class => 'textbox'
+      %tr
+        %th.label
+          = fields.label :keywords, t('keywords_label')
+        %td.field= fields.text_field :keywords, :class => 'textbox'
+  .drawer_handle
+    %a.toggle{:href=>'#attributes', :rel=>"toggle[attributes]", :class=>"less"} Less
+
+  #tab_control
+    = hidden_field_tag 'index', 0, :id => 'page_part_index_field'
+    #tabs.tabs
+    #pages.pages
+      .page{:id => 'product_description_page', 'data-caption'=>'Description'}
+        .part
+          %p
+            %label{:for => "description_filter_id"} 
+              = t('filter') 
+            = fields.select :filter_id, filter_options_for_select
+          %div
+            ~ fields.text_area :description, :class => "textarea large", :style => "width: 100%"
+
+      .page{:id => 'product_related_page', 'data-caption'=>'Related Products'}
+        .part
+          %div
+            ~ fields.text_area :description, :class => "textarea large", :style => "width: 100%"
+
+      .page{:id => 'product_suggestions_page', 'data-caption'=>'Suggestions'}
+        .part
+          %div
+            ~ fields.text_area :description, :class => "textarea large", :style => "width: 100%"

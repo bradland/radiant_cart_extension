@@ -1,0 +1,20 @@
+- @page_title = t('categories') + ' - ' + default_page_title
+
+.outset
+  %table#site_map.index{:summary=>"Product category hierarchy of the current site"}
+    %thead
+      %tr
+        %th.page= t('category') 
+        %th.status= t('product_count')
+        %th.modify{:colspan=>"2"}= t('modify')
+    %tbody
+      - if @categories.size > 0
+        - @categories.each do |category|
+          = render_node category
+      - else
+        %tr
+          %td.empty{:colspan => admin.page.index.node.length}= t('no_categories')
+
+#actions
+  %ul
+    %li= link_to image('plus') + " " + t("new_category"), new_admin_category_path
